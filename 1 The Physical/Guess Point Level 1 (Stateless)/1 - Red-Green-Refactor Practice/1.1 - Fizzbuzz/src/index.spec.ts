@@ -32,4 +32,12 @@ describe("fizzbuzz", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("given 15 should return `FizzBuzz`", () => {
+    const expected = "FizzBuzz";
+
+    const actual = fizzbuzz(15);
+
+    expect(actual).toEqual(expected);
+  });
 });
