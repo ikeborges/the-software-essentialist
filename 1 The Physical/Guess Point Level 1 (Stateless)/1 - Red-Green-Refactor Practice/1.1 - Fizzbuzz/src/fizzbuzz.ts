@@ -1,4 +1,6 @@
 function fizzbuzz(x: number) {
+  if (x % 3 === 0 && x % 5 === 0) return "FizzBuzz";
+
   if (x % 3 === 0) return "Fizz";
 
   return "Buzz";
