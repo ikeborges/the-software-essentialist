@@ -1,7 +1,10 @@
 function fizzbuzz(x: number) {
-  if (x % 3 === 0 && x % 5 === 0) return "FizzBuzz";
-  if (x % 3 === 0) return "Fizz";
-  if (x % 5 === 0) return "Buzz";
+  const isMultipleOfThree = x % 3 === 0;
+  const isMultipleOfFive = x % 5 === 0;
+
+  if (isMultipleOfThree && isMultipleOfFive) return "FizzBuzz";
+  if (isMultipleOfThree) return "Fizz";
+  if (isMultipleOfFive) return "Buzz";
 
   return x.toString();
 }
