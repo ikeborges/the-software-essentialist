@@ -1,51 +1,34 @@
 import fizzbuzz from "./fizzbuzz";
 
 describe("fizzbuzz", () => {
-  test("given 3 should return `Fizz`", () => {
-    const expected = "Fizz";
-
-    const actual = fizzbuzz(3);
-
-    expect(actual).toEqual(expected);
+  describe("Multiples of 3 should return `Fizz`", () => {
+    test.each([3, 6])("given %d should return `Fizz`", (multipleOfThree) => {
+      expect(fizzbuzz(multipleOfThree)).toEqual("Fizz");
+    });
   });
 
-  test("given 5 should return `Buzz`", () => {
-    const expected = "Buzz";
-
-    const actual = fizzbuzz(5);
-
-    expect(actual).toEqual(expected);
+  describe("Multiples of 5 should return `Buzz`", () => {
+    test.each([5, 10])("given %d should return `Buzz`", (multipleOfFive) => {
+      expect(fizzbuzz(multipleOfFive)).toEqual("Buzz");
+    });
   });
 
-  test("given 6 should return `Fizz`", () => {
-    const expected = "Fizz";
-
-    const actual = fizzbuzz(6);
-
-    expect(actual).toEqual(expected);
+  describe("Multiples of both 3 and 5 should return `FizzBuzz`", () => {
+    test.each([15])(
+      "given %d should return `FizzBuzz`",
+      (multipleOfThreeAndFive) => {
+        expect(fizzbuzz(multipleOfThreeAndFive)).toEqual("FizzBuzz");
+      }
+    );
   });
 
-  test("given 10 should return `Buzz`", () => {
-    const expected = "Buzz";
-
-    const actual = fizzbuzz(10);
-
-    expect(actual).toEqual(expected);
-  });
-
-  test("given 15 should return `FizzBuzz`", () => {
-    const expected = "FizzBuzz";
-
-    const actual = fizzbuzz(15);
-
-    expect(actual).toEqual(expected);
-  });
-
-  test("given 1 should return '1'", () => {
-    const expected = "1";
-
-    const actual = fizzbuzz(1);
-
-    expect(actual).toEqual(expected);
+  describe("Non-multiples of 3 and 5 should be returned as string", () => {
+    test.each([
+      [1, "1"],
+      [2, "2"],
+    ])("given %d should return '%s'", (nonMultipleOfThreeAndFive, expected) => {
+      const result = fizzbuzz(nonMultipleOfThreeAndFive);
+      expect(result).toEqual(expected);
+    });
   });
 });
