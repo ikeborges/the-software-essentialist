@@ -40,4 +40,12 @@ describe("fizzbuzz", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("given 1 should return '1'", () => {
+    const expected = "1";
+
+    const actual = fizzbuzz(1);
+
+    expect(actual).toEqual(expected);
+  });
 });
