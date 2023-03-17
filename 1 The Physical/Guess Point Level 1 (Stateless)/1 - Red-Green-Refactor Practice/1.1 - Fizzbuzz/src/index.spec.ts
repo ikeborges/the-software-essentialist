@@ -8,4 +8,12 @@ describe("fizzbuzz", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("given 5 should return `Buzz`", () => {
+    const expected = "Buzz";
+
+    const actual = fizzbuzz(5);
+
+    expect(actual).toEqual(expected);
+  });
 });
